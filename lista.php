@@ -7,7 +7,7 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 $result = [];
 
-$sql = "SELECT vendeg.*, foglalas.* FROM vendeg, foglalas WHERE vendeg.id=foglalas.vendegid ";
+$sql = "SELECT vendeg.id, vendeg.nev, vendeg.cim, vendeg.email , vendeg.telefonszam, foglalas.erkezes, foglalas.vejszaka  FROM vendeg, foglalas WHERE vendeg.id=foglalas.vendegid ";
 
 foreach ($db->query($sql) as $row) {
     $result[] = new szalloda($row);

@@ -23,7 +23,7 @@ require_once 'lista.php';
 <?php
 if (isset($_POST['submit'])) {
 
-    $vendegid = $db->lastInsertId();
+   
     
     $stm = $db->prepare("insert into vendeg(nev, cim, email, telefonszam) values(:nev, :cim, :email, :telefonszam)");
     $stm->execute([
@@ -35,6 +35,9 @@ if (isset($_POST['submit'])) {
         "telefonszam" => $_POST["telefonszam"]
                  
     ]);
+    
+    
+    $vendegid = $db->lastInsertId();
     
     $stm = $db->prepare("insert into foglalas(erkezes, vejszaka, vendegid) values(:erkezes, :vejszaka, :vendegid)");
     $stm->execute([

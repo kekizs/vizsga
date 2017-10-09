@@ -12,7 +12,7 @@ $stm->execute();
 $vendegek = $stm->fetchALL(PDO::FETCH_ASSOC);
 
 
-$sql = " SELECT foglalas.*, vendeg.* FROM `foglalas`,`vendeg` where vendeg.id=foglalas.vendegid and vendeg.id=$eid;";
+$sql = "SELECT vendeg.id, vendeg.nev, vendeg.cim, vendeg.email , vendeg.telefonszam, foglalas.erkezes, foglalas.vejszaka FROM vendeg,foglalas  where vendeg.id=foglalas.vendegid and vendeg.id=$eid;";
 
 
 foreach ($db->query($sql) as $row) {
